@@ -1,0 +1,49 @@
+
+<%- include('layouts/header') %>
+
+<div class="container px-5 ny-5">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h1>Agregar Producto</h1>
+
+            <form id="add-form" action="/add" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="id">ID</label>
+                    <input class="form-control" type="number" name="code" id="ID" placeholder="Ingresa el codigo del producto">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="name">Nombre del producto</label>
+                    <input class="form-control" type="text" name="itemName" id="name" placeholder="Ingresa el nombre del producto">
+                </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="file">Foto</label>
+                    <input class="form-control" type="file" name="itemPhoto" id="image" required>
+                </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="Precio">Precio del producto</label>
+                    <input class="form-control" type="number" name="price" id="precio" placeholder="Ingresa el precio del producto">
+                </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="stock">Cantidad Disponible</label>
+                    <input class="form-control" type="text" name="quantityInStock" id="stock" placeholder="Ingresa la cantidad de productos">
+                </div>
+                
+                  <div class="mb-3">
+                    <label class="form-label" for="descripcion">Descripcion</label>
+                    <input class="form-control" type="text" name="description" id="descripcion" placeholder="Ingresa la descripcion del producto">
+                </div>
+
+                <div class="d-grid">
+                    <input type="submit" class="btn btn-primary btn-large" name="" id="" value="Add Product">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('layouts/footer') %>

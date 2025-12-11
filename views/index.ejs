@@ -1,0 +1,63 @@
+
+<%- include('layouts/header') %>
+
+
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-lg-12">
+
+            <% if (message) { %>
+                <div class="alert alert-dimissible fade show alert-<%= message.type %>" role="alert">
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong><%= message.message %></strong>
+                </div>
+            <% } %>
+
+            <!-- GRID DE CARDS -->
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                <% products.forEach((product) => { %>
+                    <div class="col">
+                        <div class="card h-100 shadow-sm" style="max-width: 230px; margin: auto;">
+                            
+                            <img 
+                                src="<%= product.itemPhoto %>" 
+                                class="card-img-top" 
+                                alt="<%= product.itemName %>"
+                                style="height: 120px; object-fit: cover;"
+                            >
+
+                            <div class="card-body p-2">
+                                <h6 class="card-title mb-1"><%= product.itemName %></h6>
+                                <p class="card-text small" style="font-size: 0.75rem;">
+                                    <%= product.description %>
+                                </p>
+                                
+                                <ul class="list-group list-group-flush small">
+                                    <li class="list-group-item py-1"><strong>Código:</strong> <%= product.code %></li>
+                                    <li class="list-group-item py-1"><strong>Cantidad:</strong> <%= product.quantityInStock %></li>
+                                    <li class="list-group-item py-1"><strong>Precio:</strong> $<%= product.price %></li>
+                                </ul>
+                            </div>
+
+                            <div class="card-footer d-flex justify-content-between p-2">
+                                <a href="/edit/<%= product._id %>" class="btn btn-warning btn-sm px-2 py-1">
+                                    <i class="fa fa-edit"></i>
+                                </a>
+
+                                <a href="/delete/<%= product._id %>" class="btn btn-danger btn-sm px-2 py-1">
+                                    <i class="fa fa-trash"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<%- include('layouts/footer') %>

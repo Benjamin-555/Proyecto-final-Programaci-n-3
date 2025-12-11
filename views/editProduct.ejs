@@ -1,0 +1,52 @@
+
+<%- include('layouts/header') %>
+
+<div class="container px-5 ny-5">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <h1>Editando Producto (<%= product.itemName %>)</h1>
+
+            <form id="add-form" action="/update/<%= product._id %>" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="id">ID</label>
+                    <input class="form-control" type="number" name="code" value="<%= product.code %>" placeholder="Ingresa el codigo del producto">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="name">Nombre del producto</label>
+                    <input class="form-control" type="text" name="itemName" value="<%= product.itemName %>" placeholder="Ingresa el nombre del producto">
+                </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="file">Foto</label>
+                    <input class="form-control" type="file" name="itemPhoto" required>
+                    <img src="/<%= product.itemPhoto %>" width="100" alt="" class="img-thumbail mt-1">
+                </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="Precio">Precio del producto</label>
+                    <input class="form-control" type="number" name="price" value="<%= product.price %>" placeholder="Ingresa el precio del producto">
+                </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="stock">Cantidad Disponible</label>
+                    <input class="form-control" type="text" name="quantityInStock" value="<%= product.quantityInStock %>" placeholder="Ingresa la cantidad de productos">
+                </div>
+                
+                  <div class="mb-3">
+                    <label class="form-label" for="descripcion">Descripcion</label>
+                    <input class="form-control" type="text" name="description" value="<%= product.description %>" placeholder="Ingresa la descripcion del producto">
+                </div>
+
+                <input type="hidden" name="old_image" value="<%= product.itemPhoto %>">
+
+                <div class="d-grid">
+                    <input type="submit" class="btn btn-primary btn-large" name="" id="" value="Edit Product">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('layouts/footer') %>
